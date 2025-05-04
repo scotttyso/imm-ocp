@@ -1,0 +1,22 @@
+---
+#====================================
+#   Policies -> Port - Variables
+#====================================
+default:
+  policies:
+    port:
+      - device_model: UCSX-S9108-100G
+        names:
+          - x_direct_a
+          - x_direct_b
+        port_channel_ethernet_uplinks:
+          - flow_control_policy: flow_ctrl
+            interfaces:
+              - port_id: 1
+              - port_id: 2
+              - port_id: 5
+              - port_id: 6
+            link_aggregation_policy: link_agg
+            link_control_policy: link_ctrl
+            pc_ids:
+              - 1

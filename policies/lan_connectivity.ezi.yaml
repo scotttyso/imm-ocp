@@ -1,0 +1,75 @@
+---
+#================================================
+#   Policies -> LAN Connectivity - Variables
+#================================================
+default:
+  policies:
+    lan_connectivity:
+      - name: controller_lcp
+        target_platform: FIAttached
+        vnics:
+          - enable_failover: true
+            ethernet_adapter_policy: Linux-v2
+            ethernet_network_control_policy: cdp_lldp
+            ethernet_network_group_policies:
+              - k8s_mgmt
+            ethernet_qos_policy: best_effort
+            mac_address_pools:
+              - fabric_a
+            names:
+              - eno5
+            placement:
+              pci_order:
+                - 0
+      - name: worker_lcp
+        target_platform: FIAttached
+        vnics:
+          - enable_failover: true
+            ethernet_adapter_policy: Linux-v2
+            ethernet_network_control_policy: cdp_lldp
+            ethernet_network_group_policies:
+              - k8s_mgmt
+              - containers_and_vms
+            ethernet_qos_policy: best_effort
+            mac_address_pools:
+              - fabric_a
+              - fabric_b
+            names:
+              - eno5
+              - eno8
+            placement:
+              pci_order:
+                - 0
+                - 3
+          - ethernet_adapter_policy: 16RxQs-5G
+            ethernet_network_control_policy: cdp_lldp
+            ethernet_network_group_policies:
+              - iscsi_a
+              - iscsi_b
+            ethernet_qos_policy: platinum
+            mac_address_pools:
+              - fabric_a
+              - fabric_b
+            names:
+              - eno6
+              - eno7
+            placement:
+              pci_order:
+                - 1
+                - 2
+          - ethernet_adapter_policy: 16RxQs-5G
+            ethernet_network_control_policy: cdp_lldp
+            ethernet_network_group_policies:
+              - iscsi_a
+              - iscsi_b
+            ethernet_qos_policy: platinum
+            mac_address_pools:
+              - fabric_a
+              - fabric_b
+            names:
+              - eno9
+              - eno10
+            placement:
+              pci_order:
+                - 4
+                - 5

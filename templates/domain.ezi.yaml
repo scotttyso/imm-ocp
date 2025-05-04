@@ -1,0 +1,19 @@
+---
+#=======================================
+#   Templates -> Domain - Variables
+#=======================================
+default:
+  templates:
+    domain:
+      - create_template: true
+        name: x_direct
+        network_connectivity_policy: dns
+        ntp_policy: ntp
+        port_policies:
+          - x_direct_a
+          - x_direct_b
+        snmp_policy: snmp
+        switch_control_policy: sw_ctrl
+        system_qos_policy: qos
+        vlan_policies:
+          - k8s_vlans

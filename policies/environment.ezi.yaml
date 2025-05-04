@@ -1,0 +1,18 @@
+---
+#===========================================
+#   Policies -> Environment - Variables
+#===========================================
+default:
+  policies:
+    power:
+      - name: X9508
+        power_allocation: 8400
+        power_redundancy: Grid
+      - name: server
+        power_redundancy: Grid
+        power_restore: LastState
+    thermal:
+      - fan_control_mode: Balanced
+        name: chassis
+      - fan_control_mode: Balanced
+        name: server

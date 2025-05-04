@@ -1,0 +1,45 @@
+---
+#========================================
+#   Policies -> Ethernet - Variables
+#========================================
+default:
+  policies:
+    ethernet_adapter:
+      - adapter_template: 16RxQs-5G
+        name: 16RxQs-5G
+      - adapter_template: Linux-v2
+        name: Linux-v2
+    ethernet_network_control:
+      - cdp_enable: true
+        lldp_enable_receive: true
+        lldp_enable_transmit: true
+        name: cdp_lldp
+    ethernet_network_group:
+      - allowed_vlans: '3010'
+        name: iscsi_a
+        native_vlan: 3010
+      - allowed_vlans: '3020'
+        name: iscsi_b
+        native_vlan: 3020
+      - allowed_vlans: '1061'
+        name: k8s_mgmt
+        native_vlan: 1061
+      - allowed_vlans: '1062'
+        name: containers_and_vms
+    ethernet_qos:
+      - mtu: 9000
+        name: best_effort
+        priority: Best Effort
+        rate_limit: 100000
+      - mtu: 9000
+        name: gold
+        priority: Gold
+        rate_limit: 100000
+      - mtu: 9000
+        name: platinum
+        priority: Platinum
+        rate_limit: 100000
+      - mtu: 9000
+        name: silver
+        priority: Silver
+        rate_limit: 100000

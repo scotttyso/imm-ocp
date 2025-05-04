@@ -1,0 +1,11 @@
+---
+#=======================================
+#   Policies -> Storage - Variables
+#=======================================
+default:
+  policies:
+    storage:
+      - m2_raid_configuration:
+          slot: MSTOR-RAID-1
+        name: m2_raid
+        use_jbod_for_vd_creation: true

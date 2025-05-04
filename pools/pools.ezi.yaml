@@ -1,0 +1,34 @@
+default:
+  pools:
+    ip:
+      - ipv4_blocks:
+          - from: 198.18.0.10
+            gateway: 198.18.0.1
+            netmask: 255.255.255.0
+            primary_dns: 208.67.220.220
+            secondary_dns: 208.67.222.222
+            size: 24
+        name: inband_mgmt
+      - ipv4_blocks:
+          - from: 198.18.1.10
+            gateway: 198.18.1.1
+            netmask: 255.255.255.0
+            primary_dns: 208.67.220.220
+            secondary_dns: 208.67.222.222
+            size: 24
+        name: oob_mgmt
+    mac:
+      - mac_blocks:
+          - from: 00:25:B5:0A:00:00
+            size: 256
+        name: fabric_a
+      - mac_blocks:
+          - from: 00:25:B5:0B:00:00
+            size: 256
+        name: fabric_b
+    uuid:
+      - name: uuid_pool
+        prefix: 000025B5-0000-0000
+        uuid_blocks:
+          - from: 0000-000000000000
+            size: 256

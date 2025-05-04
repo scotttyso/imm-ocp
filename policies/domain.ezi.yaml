@@ -1,0 +1,20 @@
+---
+#======================================
+#   Policies -> Domain - Variables
+#======================================
+default:
+  policies:
+    flow_control:
+      - name: flow_ctrl
+    link_aggregation:
+      - name: link_agg
+    link_control:
+      - name: link_ctrl
+    switch_control:
+      - name: sw_ctrl
+        switching_mode_ethernet: end-host
+    system_qos:
+      - configure_recommended_classes: true
+        description: qos System QoS Policy
+        jumbo_mtu: true
+        name: qos

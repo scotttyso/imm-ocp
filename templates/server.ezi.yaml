@@ -1,0 +1,43 @@
+---
+#=======================================
+#   Templates -> Server - Variables
+#=======================================
+default:
+  templates:
+    server:
+      - bios_policy: virtualization_m8_amd_tpm
+        boot_order_policy: m2_uefi
+        create_template: true
+        firmware_policy: fw_05_04_2025
+        imc_access_policy: mgmt
+        ipmi_over_lan_policy: ipmi
+        lan_connectivity_policy: controller_lcp
+        local_user_policy: local_users
+        name: controller_virtualization_m8_amd_tpm
+        power_policy: server
+        serial_over_lan_policy: sol
+        snmp_policy: snmp
+        storage_policy: m2_raid
+        target_platform: FIAttached
+        thermal_policy: server
+        uuid_pool: uuid
+        virtual_kvm_policy: vkvm
+        virtual_media_policy: vmedia
+      - bios_policy: virtualization_m8_amd_tpm
+        boot_order_policy: m2_uefi
+        create_template: true
+        firmware_policy: fw_05_04_2025
+        imc_access_policy: mgmt
+        ipmi_over_lan_policy: ipmi
+        lan_connectivity_policy: worker_lcp
+        local_user_policy: local_users
+        name: worker_virtualization_m8_amd_tpm
+        power_policy: server
+        serial_over_lan_policy: sol
+        snmp_policy: snmp
+        storage_policy: m2_raid
+        target_platform: FIAttached
+        thermal_policy: server
+        uuid_pool: uuid
+        virtual_kvm_policy: vkvm
+        virtual_media_policy: vmedia

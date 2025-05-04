@@ -1,0 +1,23 @@
+---
+#====================================
+#   Policies -> VLAN - Variables
+#====================================
+default:
+  policies:
+    multicast:
+      - name: mcast
+    vlan:
+      - name: k8s_vlans
+        vlans:
+          - multicast_policy: mcast
+            name: INBAND-MGMT-VL1061
+            vlan_list: "1061"
+          - multicast_policy: mcast
+            name: ContainersAndVMs-VL1062
+            vlan_list: "1062"
+          - multicast_policy: mcast
+            name: iSCSI-A-VL3010
+            vlan_list: "3010"
+          - multicast_policy: mcast
+            name: iSCSI-B-VL3020
+            vlan_list: "3020"

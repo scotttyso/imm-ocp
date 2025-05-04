@@ -1,0 +1,78 @@
+---
+#==========================================
+#   Policies -> Management - Variables
+#==========================================
+default:
+  policies:
+    imc_access:
+      - inband_ip_pool: inband_mgmt
+        inband_vlan_id: 1061
+        name: mgmt
+        out_of_band_ip_pool: oob_mgmt
+    ipmi_over_lan:
+      - name: ipmi
+        privilege: admin
+    local_user:
+      - name: local_users
+        password_properties:
+          always_send_user_password: false
+          enable_password_expiry: true
+          enforce_strong_password: true
+          grace_period: 0
+          notification_period: 15
+          password_expiry_duration: 90
+          password_history: 0
+        users:
+          - enabled: true
+            password: 1
+            role: admin
+            username: admin
+    network_connectivity:
+      - description: dns Network Connectivity Policy
+        dns_servers_v4:
+          - 198.18.1.15
+          - 198.18.1.16
+        name: dns
+    ntp:
+      - name: ntp
+        ntp_servers:
+          - 198.18.1.15
+          - 198.18.1.16
+        timezone: America/New_York
+    serial_over_lan:
+      - name: sol
+    snmp:
+      - name: snmp
+        snmp_port: 161
+        snmp_trap_destinations:
+          - destination_address: 198.18.1.61
+            port: 162
+            user: snmpadmin
+        snmp_users:
+          - auth_password: 1
+            auth_type: SHA
+            name: snmpadmin
+            privacy_password: 1
+            privacy_type: AES
+            security_level: AuthPriv
+        system_contact: admin@example.com
+        system_location: Example Corporation
+    syslog:
+      - description: syslog Syslog Policy
+        local_logging:
+          minimum_severity: warning
+        name: syslog
+        remote_logging:
+          - enable: true
+            hostname: 198.18.5.14
+            minimum_severity: warning
+            port: 514
+            protocol: udp
+          - enable: true
+            hostname: 198.18.5.15
+            minimum_severity: warning
+            port: 514
+            protocol: udp
+    virtual_kvm:
+      - allow_tunneled_vkvm: true
+        name: vkvm

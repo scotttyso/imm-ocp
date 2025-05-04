@@ -1,0 +1,13 @@
+---
+#========================================
+#   Templates -> Chassis - Variables
+#========================================
+default:
+  templates:
+    chassis:
+      - create_template: true
+        imc_access_policy: mgmt
+        name: X-9508
+        power_policy: X9508
+        snmp_policy: snmp
+        thermal_policy: chassis
