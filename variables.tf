@@ -349,7 +349,7 @@ variable "local_user_password_5" {
 
 #__________________________________________________________________
 #
-# MacSec Sensitive Variables
+# MACsec Sensitive Variables
 #__________________________________________________________________
 
 variable "mac_sec_fallback_key_chain_secret_1" {
@@ -968,35 +968,6 @@ variable "snmp_trap_community_5" {
   validation {
     condition     = length(regexall("^$|^[a-zA-Z\\d\\.=!&#$%+^_*-]{8,32}$", var.snmp_trap_community_5)) > 0
     error_message = "Must match the following regular expression: ```^[a-zA-Z\\d\\.=!&#$%+^_*-]{8,32}$```."
-  }
-}
-
-
-#__________________________________________________________________
-#
-# Switch Control Sensitive Variables
-#__________________________________________________________________
-
-variable "switch_control_aes_primary_key_1" {
-  default     = ""
-  description = <<-EOT
-    The key octet string is a shared secret used in cryptographic operations.
-    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
-    The allowed characters are:
-      - Lower or Upper Case Letters
-      - Numbers
-      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
-      - Be 16 to 64 characters in length.
-  EOT
-  sensitive   = true
-  type        = string
-  validation {
-    condition     = length(regexall("^$|^[a-zA-Z0-9=!&#$%+^@_*-]{16,64}$", var.switch_control_aes_primary_key_1)) > 0
-    error_message = <<-EOT
-      Must meet the following criteria:
-        - Be 16 to 64 characters in length.
-        - Match the following regular expression: ```^[a-zA-Z0-9=!&#$%+^@_*-]{16,64}$```.
-    EOT
   }
 }
 

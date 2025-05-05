@@ -14,6 +14,7 @@ locals {
   intersight_fqdn = lookup(local.model.global_settings, "intersight_fqdn", "intersight.com")
   model           = yamldecode(data.utils_yaml_merge.model.output)
   non_orgs        = ["global_settings", "intersight"]
+  orgs            = { for k, v in data.intersight_organization_organization.orgs.results : v.name => v.moid }
 
   #__________________________________________________________________
   #
@@ -114,7 +115,6 @@ locals {
         5 = var.snmp_trap_community_5
       }
     }
-    switch_control = { aes_primary_key = { 1 = var.switch_control_aes_primary_key_1 } }
     virtual_media = {
       password = {
         1 = var.vmedia_password_1

@@ -2,22 +2,23 @@
 #
 # Module Outputs
 #__________________________________________________________
-output "organizations" {
-  description = "Outputs from the organizations module."
-  value       = module.organizations
+
+output "orgs" {
+  description = "Organization Moids"
+  value       = local.orgs
 }
 
 output "policies" {
-  description = "Outputs from the policies module."
+  description = "The Name of Each Policy Created with it's respective Moid."
   value       = module.policies
 }
 
 output "pools" {
-  description = "Outputs from the pools module."
+  description = "The Name of Each Pool Created with it's respective Moid."
   value       = module.pools
 }
 
 output "profiles" {
-  description = "Outputs from the profiles module."
+  description = "The Name of Each Profile Created with it's respective Moid."
   value       = module.profiles
 }
